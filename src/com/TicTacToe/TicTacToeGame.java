@@ -10,6 +10,7 @@ import java.util.Scanner;
 public class TicTacToeGame {
 	//variables 
 	static char playerOption,computerOption;
+	static char board[]=new char[10];
 	static Scanner sc=new Scanner(System.in);
 	/*
 	 * This is a function that is used to create a board for the gameplay.
@@ -18,14 +19,13 @@ public class TicTacToeGame {
 	 * @return This returns a board array
 	 */
 	public static char[] createboard(){
-		char board[]=new char[10];
 		for(int index=1;index<board.length;index++){
 			board[index]=' ';
 			}
 		return board;
 	}
 	/*
-	 * This is a method which allows the player to select either "X" or "O" as his/her option in the gameplay
+	 * This is a method which allows the player to select either "X" or "O" as his/her option in the gameplay.
 	 */
 	public static void chooseOption() {
 		System.out.println("Which option do you want to choose.");
@@ -44,12 +44,20 @@ public class TicTacToeGame {
 		}
 		System.out.println("OK.You have selected "+s);
 	}
+	public static void showBoard() {
+		System.out.println("Tic Tac Toe Board");
+		System.out.println( "  "+board[1] + " | " + board[2] + " | " + board[3]+"  ");
+		System.out.println("  ---------  ");
+		System.out.println( "  "+board[4] + " | " + board[5] + " | " + board[6]+"  ");
+		System.out.println("  ---------  ");
+		System.out.println( "  "+board[7] + " | " + board[8] + " | " + board[9]+"  ");
+	}
 	public static void main(String[] args) {
 		
 		System.out.println("Welcome to Tic-Tac-Toe game");
 		createboard();
 		chooseOption();
-		System.out.println(playerOption);
+		showBoard();
 	} 
 	
 }
