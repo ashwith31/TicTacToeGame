@@ -61,7 +61,7 @@ public class TicTacToeGame {
 	}
 	/*
 	 * This method is to create for user to make a move to a desired location
-	 * in the board.
+	 * in the board if there is a free space in that location.
 	 * Input will take input from user like from 1 to 9. If it is not in
 	 * range from 1 to 9. Then it will show you an error "Invalid input."
 	 */
@@ -70,7 +70,7 @@ public class TicTacToeGame {
 		do {
 		System.out.println("Enter the position you want to place the element");
 		int i = sc.nextInt();
-		if (i>0 && i<10 ) {
+		if (i>0 && i<10 && board[i]==' ') {
 			board[i] = playerOption;
 			validinput=true;
 			
@@ -78,7 +78,6 @@ public class TicTacToeGame {
 			System.out.println("Invalid Move");
 		}
 		showBoard();
-		
 		}while(!validinput);
 	}
 
