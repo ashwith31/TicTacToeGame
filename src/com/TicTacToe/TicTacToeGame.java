@@ -59,26 +59,43 @@ public class TicTacToeGame {
 		System.out.println("  ---------  ");
 		System.out.println("  " + board[7] + " | " + board[8] + " | " + board[9] + "  ");
 	}
+
 	/*
-	 * This method is to create for user to make a move to a desired location
-	 * in the board if there is a free space in that location.
-	 * Input will take input from user like from 1 to 9. If it is not in
-	 * range from 1 to 9. Then it will show you an error "Invalid input."
+	 * This method is to create for user to make a move to a desired location in the
+	 * board if there is a free space in that location. Input will take input from
+	 * user like from 1 to 9. If it is not in range from 1 to 9. Then it will show
+	 * you an error "Invalid input."
 	 */
 	public static void desiredLocation() {
-		boolean validinput=false;
+		boolean validinput = false;
 		do {
-		System.out.println("Enter the position you want to place the element");
-		int i = sc.nextInt();
-		if (i>0 && i<10 && board[i]==' ') {
-			board[i] = playerOption;
-			validinput=true;
-			
-		} else {
-			System.out.println("Invalid Move");
-		}
-		showBoard();
-		}while(!validinput);
+			System.out.println("Enter the position you want to place the element");
+			int i = sc.nextInt();
+			if (i > 0 && i < 10 && board[i] == ' ') {
+				board[i] = playerOption;
+				validinput = true;
+
+			} else {
+				System.out.println("Invalid Move");
+			}
+			showBoard();
+		} while (!validinput);
+	}
+
+	/**
+	 * This method is to flip a coin who plays first select either 0 for Tail or 1
+	 * for Head
+	 * 
+	 * @param None
+	 */
+	private static void toss() {
+		System.out.println("Select 0 for Tail or 1 for Head to see who plays first");
+		int playerSelection = sc.nextInt(); // player selecting the option either 0 or 1
+		int toss = (int) Math.floor(Math.random() * 10) % 2;
+		if (playerSelection == toss)
+			System.out.println("Player Won the Toss and Plays First");
+		else
+			System.out.println("Computer Won the Toss and Plays First");
 	}
 
 	public static void main(String[] args) {
@@ -87,7 +104,7 @@ public class TicTacToeGame {
 		createboard();
 		chooseOption();
 		showBoard();
-		desiredLocation();
+		toss();
 	}
 
 }
